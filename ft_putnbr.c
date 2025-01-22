@@ -14,21 +14,14 @@
 
 static size_t	print_nb(long nb)
 {
-	char	c;
-
 	if (nb / 10)
-		return (print_nb(nb / 10) + print_nb(nb % 10));
-	else
-	{
-		c = (char)(nb + '0');
-		return (ft_putchar(&c));
-	}
+		print_nb(nb / 10);
+	return (ft_putchar((char)(nb % 10 + '0')));
 }
 
 size_t	ft_putnbr(const int n)
 {
 	long	nb;
-	char	c;
 
 	nb = n;
 	if (nb == -2147483648)
@@ -39,8 +32,7 @@ size_t	ft_putnbr(const int n)
 	if (nb < 0)
 	{
 		nb = -nb;
-		c = '-';
-		return (ft_putchar(&c) + print_nb(nb));
+		write(1, "-", 1);
 	}
 	else
 		return (print_nb(nb));

@@ -12,7 +12,8 @@
 
 #include "libftprintf.h"
 
-size_t	ft_putchar(const char *c)
+size_t	ft_putchar(char c)
 {
-	return (write(1, &c, 1));
+	write(1, &c, 1);
+	return (1);
 }

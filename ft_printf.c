@@ -16,7 +16,7 @@ static size_t	conversion(const char *c, size_t *i, va_list *ap)
 {
 	*i = *i + 1;
 	if (*(c + 1) == 'c')
-		return (ft_putchar((char[]){(char) va_arg(*ap, int), '\0'}));
+		return (ft_putchar((char) va_arg(*ap, int), '\0'));
 	else if (*(c + 1) == 's')
 		return (ft_putstr(va_arg(*ap, char *)));
 	else if (*(c + 1) == 'p')
@@ -52,13 +52,13 @@ int	ft_printf(const char *str, ...)
 	len = 0;
 	va_start(ap, str);
 	i = 0;
-	while (str[i])
+	while (str[i] && (len != -1))
 	{
 		if (str[i] == '%')
 			tmp = conversion(str + i, &i, &ap);
 		else
 		{
-			tmp = ft_putchar(&str[i]);
+			tmp = write(1, &str[i], 1);
 			i++;
 		}
 		if (tmp >= 0)
@@ -66,8 +66,6 @@ int	ft_printf(const char *str, ...)
 		else
 			len = tmp;
 	}
-	//if (ft_strlen(str) > 1)
-		//len -=1;
 	va_end(ap);
 	return (len);
 }
@@ -87,15 +85,17 @@ int main() {
     int num = 12345;
     unsigned int u_num = 98765;
     unsigned int hex_num = 255;
-    printf("\nTest avec plusieurs spécificateurs de format:\n");
-    ret_ft_printf = ft_printf("ft_printf: %c %s %d %u %x\n", c, str, num, u_num, hex_num);
+   // printf("\nTest avec plusieurs spécificateurs de format:\n");
+	ft_printf("Test avec plusieurs spécificateurs de format:\n");
+    ret_ft_printf = ft_printf("\nft_printf: %c %s %d %u %x\n", c, str, num, u_num, hex_num);
     ret_printf = printf("printf: %c %s %d %u %x \n", c, str, num, u_num, hex_num);
     printf("ret_ft_printf: %d, ret_printf: %d\n", ret_ft_printf, ret_printf);
-	x = ft_printf("news %c %s\n", c, str);
-	y = printf("newss %c %s\n", c, str);
+	x = ft_printf("news %c \n", c);
+	y = printf("newss %c \n", c);
 	printf("x: %d, y: %d\n", x, y);
 	p = ft_printf("test: %d %u\n", num, u_num);
 	l = printf("test2: %d %u\n", num, u_num);
 	printf("p: %d, l: %d\n", p, l);
     return 0;
 }
+// voir le man de write

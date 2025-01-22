@@ -18,14 +18,14 @@
 # include <stdlib.h>
 # include <string.h>
 
-size_t	ft_putchar(const char *str);
+size_t	ft_putchar(char c);
 size_t	ft_strlen(const char *c);
 size_t	ft_putstr(const char *c);
-size_t	ft_putadress(void *adress);
-size_t	ft_puthexa_lower(const unsigned int n);
+size_t	ft_putadress(void *str);
+size_t	ft_puthexa_lower(unsigned int n);
 size_t	ft_putnbr(const int n);
-size_t	ft_putunbr(const unsigned int n);
-size_t	ft_puthexa_upper(const unsigned int n);
+size_t	ft_putunbr(unsigned int n);
+size_t	ft_puthexa_upper(unsigned int n);
 
 int		ft_printf(const char *str, ...);
 

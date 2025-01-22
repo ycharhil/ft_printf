@@ -12,29 +12,27 @@
 
 #include "libftprintf.h"
 
-static size_t	printadress(const unsigned long n)
+static size_t print_hex(unsigned int n)
 {
-	char	c;
+	char	hex_digit;
 
-	if (n / 16)
-		return (printadress(n / 16) + printadress(n % 16));
-	else if (n < 10)
-	{
-		c = (char)(n + '0');
-		ft_putchar(&c);
-	}
+	if (n /16)
+		print_hex(n / 16);
+	if (n % 16 < 10)
+		hex_digit = (n % 16) + '0';
 	else
-	{
-		c = (char)(n - 10 + 'a');
-		ft_putchar(&c);
-	}
-	return (1);
+		hex_digit = (n % 16) - 10 + 'a';
+	return (ft_putchar(hex_digit));
 }
 
-size_t	ft_putadress(void *adress)
+size_t	ft_putadress(void *str)
 {
-	if (!adress)
-		return (ft_putstr("(nil)"));
-	ft_putstr("0x");
-	return (2 + printadress((unsigned long) adress));
+	unsigned long	address;
+
+	address = (unsigned long)str;
+	ft_putchar('0');
+	ft_putchar('x');
+	if (address == 0)
+		return (ft_putchar('0'));
+	return (print_hex(address));
 }

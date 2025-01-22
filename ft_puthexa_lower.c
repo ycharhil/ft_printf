@@ -12,20 +12,22 @@
 
 #include "libftprintf.h"
 
-size_t	ft_puthexa_lower(const unsigned int n)
+static size_t print_hex(unsigned int n)
 {
-	char	c;
+	char	hex_digit;
 
-	if (n >= 16)
-		return (ft_puthexa_lower(n / 16) + ft_puthexa_lower(n % 16));
-	else if (n < 10)
-	{
-		c = (char)(n + '0');
-		return (ft_putchar(&c));
-	}
+	if (n /16)
+		print_hex(n / 16);
+	if (n % 16 < 10)
+		hex_digit = (n % 16) + '0';
 	else
-	{
-		c = (char)(n - 10 + 'a');
-		return (ft_putchar(&c));
-	}
+		hex_digit = (n % 16) - 10 + 'a';
+	return (ft_putchar(hex_digit));
+}
+
+size_t	ft_puthexa_lower(unsigned int n)
+{
+	if (n == 0)
+		return (ft_putchar('0'));
+	return (ft_puthexa_lower(n));
 }

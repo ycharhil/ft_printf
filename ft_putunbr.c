@@ -12,15 +12,16 @@
 
 #include "libftprintf.h"
 
-size_t	ft_putunbr(const unsigned int n)
+static size_t print_unsigned(unsigned int n)
 {
-	char	c;
-
 	if (n / 10)
-		return (ft_putunbr(n / 10) + ft_putunbr(n % 10));
-	else
-	{
-		c = (char)(n + '0');
-		return (ft_putchar(&c));
-	}
+		print_unsigned(n / 10);
+	return (ft_putchar(char)(n % 10 + '0'));
+}
+
+size_t	ft_putunbr(unsigned int n)
+{
+	if (n == 0)
+		return (ft_putchar('0'));
+	return (print_unsigned(n));
 }

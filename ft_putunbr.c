@@ -16,7 +16,7 @@ static size_t print_unsigned(unsigned int n)
 {
 	if (n / 10)
 		print_unsigned(n / 10);
-	return (ft_putchar(char)(n % 10 + '0'));
+	return (ft_putchar((n % 10 + '0')));
 }
 
 size_t	ft_putunbr(unsigned int n)

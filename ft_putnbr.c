@@ -16,7 +16,7 @@ static size_t	print_nb(long nb)
 {
 	if (nb / 10)
 		print_nb(nb / 10);
-	return (ft_putchar((char)(nb % 10 + '0')));
+	return (ft_putchar((nb % 10 + '0')));
 }
 
 size_t	ft_putnbr(const int n)

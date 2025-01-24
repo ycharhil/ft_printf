@@ -16,7 +16,8 @@ static size_t	conversion(const char *c, size_t *i, va_list *ap)
 {
 	*i = *i + 1;
 	if (*(c + 1) == 'c')
-		return (ft_putchar((char) va_arg(*ap, int), '\0'));
+		//return (ft_putchar(( va_arg(*ap, int), '\0')));
+		return (ft_putchar(va_arg(*ap, int)));
 	else if (*(c + 1) == 's')
 		return (ft_putstr(va_arg(*ap, char *)));
 	else if (*(c + 1) == 'p')
@@ -30,9 +31,9 @@ static size_t	conversion(const char *c, size_t *i, va_list *ap)
 	else if (*(c + 1) == 'X')
 		return (ft_puthexa_upper(va_arg(*ap, int)));
 	else if (*(c + 1) == '%')
-		return (ft_putchar("%"));
+		return (ft_putchar('%'));
 	else if (*(c + 1) && *(c + 2))
-		return (ft_putchar((c)) + ft_putchar((c + 1)));
+		return (ft_putchar((c[0])));
 	else
 	{
 		*i -= 1;
@@ -87,15 +88,20 @@ int main() {
     unsigned int hex_num = 255;
    // printf("\nTest avec plusieurs spécificateurs de format:\n");
 	ft_printf("Test avec plusieurs spécificateurs de format:\n");
-    ret_ft_printf = ft_printf("\nft_printf: %c %s %d %u %x\n", c, str, num, u_num, hex_num);
-    ret_printf = printf("printf: %c %s %d %u %x \n", c, str, num, u_num, hex_num);
-    printf("ret_ft_printf: %d, ret_printf: %d\n", ret_ft_printf, ret_printf);
-	x = ft_printf("news %c \n", c);
-	y = printf("newss %c \n", c);
-	printf("x: %d, y: %d\n", x, y);
-	p = ft_printf("test: %d %u\n", num, u_num);
-	l = printf("test2: %d %u\n", num, u_num);
-	printf("p: %d, l: %d\n", p, l);
+    //ret_ft_printf = ft_printf("\nft_printf: %c %s %d %u %x\n", c, str, num, u_num, hex_num);
+    //ret_printf = printf("printf: %c %s %d %u %x \n", c, str, num, u_num, hex_num);
+    //printf("ret_ft_printf: %d, ret_printf: %d\n", ret_ft_printf, ret_printf);
+	//x = ft_printf("news %c \n", c);
+	//y = printf("newss %c \n", c);
+	//printf("x: %d, y: %d\n", x, y);
+	p = ft_printf("test: %x \n", hex_num);
+	l = printf("test2: %x \n", hex_num);
+	printf("p: %d l: %d\n", p, l);
     return 0;
 }
 // voir le man de write
+// %s ok
+// %c count ok mais print faux
+// %d 12345d > 12345 && 10 > 14
+// %u 98765u > 98765 && 10 > 14
+// %x seg fault core dumped

@@ -56,7 +56,10 @@ int	ft_printf(const char *str, ...)
 	while (str[i] && (len != -1))
 	{
 		if (str[i] == '%')
+		{
 			tmp = conversion(str + i, &i, &ap);
+			i++;
+		}
 		else
 		{
 			tmp = write(1, &str[i], 1);
@@ -94,14 +97,14 @@ int main() {
 	//x = ft_printf("news %c \n", c);
 	//y = printf("newss %c \n", c);
 	//printf("x: %d, y: %d\n", x, y);
-	p = ft_printf("test: %x \n", hex_num);
-	l = printf("test2: %x \n", hex_num);
+	p = ft_printf("test1: %d \n", num);
+	l = printf("test2: %d \n", num);
 	printf("p: %d l: %d\n", p, l);
     return 0;
 }
 // voir le man de write
-// %s ok
-// %c count ok mais print faux
-// %d 12345d > 12345 && 10 > 14
-// %u 98765u > 98765 && 10 > 14
+// %s correct
+// %c correct
+// %d 10 > 14
+// %u 10 > 14
 // %x seg fault core dumped

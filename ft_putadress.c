@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static size_t print_hex(unsigned int n)
+static size_t	print_hex(unsigned int n)
 {
 	char	hex_digit;
 

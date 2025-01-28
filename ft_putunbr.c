@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static size_t print_unsigned(unsigned int nb)
+static size_t	print_unsigned(unsigned int nb)
 {
 	size_t	count;
 
@@ -25,7 +25,7 @@ static size_t print_unsigned(unsigned int nb)
 
 size_t	ft_putunbr(unsigned int n)
 {
-	size_t	count;
+	size_t			count;
 	unsigned long	nb;
 
 	count = 0;

@@ -12,13 +12,13 @@
 
 #include "ft_printf.h"
 
-static size_t print_hex(unsigned int n)
+static size_t	print_hex(unsigned int n)
 {
 	char	hex_digit;
 	size_t	count;
 
 	count = 0;
-	if (n /16)
+	if (n / 16)
 		count += print_hex(n / 16);
 	if (n % 16 < 10)
 		hex_digit = (n % 16) + '0';
@@ -30,7 +30,7 @@ static size_t print_hex(unsigned int n)
 
 size_t	ft_puthexa_lower(unsigned int n)
 {
-	size_t	count;
+	size_t			count;
 	unsigned long	nb;
 
 	count = 0;

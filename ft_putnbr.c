@@ -10,20 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static size_t	print_nb(long nb)
 {
+	size_t	count;
+
+	count = 0;
 	if (nb / 10)
-		print_nb(nb / 10);
-	return (ft_putchar((nb % 10 + '0')));
+		count += print_nb(nb / 10);
+	count += ft_putchar(nb % 10 + '0');
+	return (count);
 }
 
 size_t	ft_putnbr(const int n)
 {
 	long	nb;
+	size_t	count;
 
 	nb = n;
+	count = 0;
 	if (nb == -2147483648)
 	{
 		write(1, "-2147483648", 11);
@@ -32,8 +38,8 @@ size_t	ft_putnbr(const int n)
 	if (nb < 0)
 	{
 		nb = -nb;
-		write(1, "-", 1);
+		count += ft_putchar('-');
 	}
-	else
-		return (print_nb(nb));
+	count += print_nb(nb);
+	return (count);
 }

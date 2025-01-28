@@ -10,24 +10,36 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static size_t print_hex(unsigned int n)
 {
 	char	hex_digit;
+	size_t	count;
 
+	count = 0;
 	if (n /16)
-		print_hex(n / 16);
+		count += print_hex(n / 16);
 	if (n % 16 < 10)
 		hex_digit = (n % 16) + '0';
 	else
 		hex_digit = (n % 16) - 10 + 'A';
-	return (ft_putchar(hex_digit));
+	count += ft_putchar(hex_digit);
+	return (count);
 }
 
 size_t	ft_puthexa_upper(unsigned int n)
 {
+	unsigned long nb;
+	size_t	count;
+
+	count = 0;
+	nb = n;
 	if (n == 0)
-		return (ft_putchar('0'));
-	return (ft_puthexa_upper(n));
+	{
+		count += ft_putchar('0');
+		return (count);
+	}
+	count += print_hex(nb);
+	return (count);
 }

@@ -10,18 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-static size_t print_unsigned(unsigned int n)
+static size_t print_unsigned(unsigned int nb)
 {
-	if (n / 10)
-		print_unsigned(n / 10);
-	return (ft_putchar((n % 10 + '0')));
+	size_t	count;
+
+	count = 0;
+	if (nb / 10)
+		count += print_unsigned(nb / 10);
+	count += ft_putchar(nb % 10 + '0');
+	return (count);
 }
 
 size_t	ft_putunbr(unsigned int n)
 {
+	size_t	count;
+	unsigned long	nb;
+
+	count = 0;
+	nb = n;
 	if (n == 0)
-		return (ft_putchar('0'));
-	return (print_unsigned(n));
+	{
+		count += ft_putchar('0');
+		return (count);
+	}
+	count += print_unsigned(nb);
+	return (count);
 }

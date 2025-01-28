@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_ftprintf.h"
 
 size_t	ft_strlen(const char *c)
 {

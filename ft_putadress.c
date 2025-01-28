@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static size_t print_hex(unsigned int n)
 {
 	char	hex_digit;
 
-	if (n /16)
+	if (n >= 16)
 		print_hex(n / 16);
 	if (n % 16 < 10)
 		hex_digit = (n % 16) + '0';

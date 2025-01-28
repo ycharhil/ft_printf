@@ -74,7 +74,7 @@ int	ft_printf(const char *str, ...)
 	return (len);
 }
 
-
+/*
 #include <stdio.h>
 
 int main() {
@@ -97,14 +97,15 @@ int main() {
 	//x = ft_printf("news %c \n", c);
 	//y = printf("newss %c \n", c);
 	//printf("x: %d, y: %d\n", x, y);
-	p = ft_printf("test1: %d \n", num);
-	l = printf("test2: %d \n", num);
+	p = ft_printf("test1: %x \n", hex_num);
+	l = printf("test2: %x \n", hex_num);
 	printf("p: %d l: %d\n", p, l);
     return 0;
 }
 // voir le man de write
 // %s correct
 // %c correct
-// %d 10 > 14
-// %u 10 > 14
-// %x seg fault core dumped
+// %d correct
+// %u correct
+// %x correct
+*/

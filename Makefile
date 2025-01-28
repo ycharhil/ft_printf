@@ -10,8 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
-LIBRARY = libftprintf.h
-NAME = libftprintf.a
+LIBRARY = ft_printf.h
+NAME = ft_printf.a
 CC = cc
 INCLUDES = -I.
 CFLAGS = $(INCLUDES) -Wall -Wextra -Werror

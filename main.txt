@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int main() {
+    int ret_ft_printf;
+    int ret_printf;
+	int	x;
+	int y;
+	int	p;
+	int	l;
+    char c = 'A';
+    char *str = "Hello, World!";
+    int num = 12345;
+    unsigned int u_num = 98765;
+    unsigned int hex_num = 255;
+   //printf("Test avec plusieurs spécificateurs de format:\n");
+	ft_printf("Test avec plusieurs spécificateurs de format:\n");
+    ret_ft_printf = ft_printf("ft_printf: %c %s %d %u %x\n", c, str, num, u_num, hex_num);
+    ret_printf = printf("printf_ft: %c %s %d %u %x\n", c, str, num, u_num, hex_num);
+    printf("ret_ft_printf: %d, ret_printf: %d\n", ret_ft_printf, ret_printf);
+	//x = ft_printf("news %c \n", c);
+	//y = printf("newss %c \n", c);
+	//printf("x: %d, y: %d\n", x, y);
+	//p = ft_printf("test1: %x \n", hex_num);
+	//l = printf("test2: %x \n", hex_num);
+	//printf("p: %d l: %d\n", p, l);
+    return 0;
+}
+// voir le man de write
+// %s correct
+// %c correct
+// %d correct
+// %u correct
+// %x correct
+

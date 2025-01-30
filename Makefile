@@ -10,8 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
-LIBRARY = ft_printf.h
-NAME = ft_printf.a
+LIBRARY = libftprintf.h
+NAME = libftprintf.a
 CC = cc
 INCLUDES = -I.
 CFLAGS = $(INCLUDES) -Wall -Wextra -Werror
@@ -25,7 +25,7 @@ $(NAME): $(OBJ)
 
 %.o: %.c $(LIBRARY)
 	$(CC) $(CFLAGS) -c $< -o $@
-	
+
 clean:
 	rm -f $(OBJ)
 fclean:

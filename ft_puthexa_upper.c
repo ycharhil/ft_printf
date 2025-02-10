@@ -6,11 +6,11 @@
 /*   By: ycharhil <ycharhil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 21:16:20 by ycharhil          #+#    #+#             */
-/*   Updated: 2024/12/16 21:16:24 by ycharhil         ###   ########.fr       */
+/*   Updated: 2025/02/10 16:27:52 by ycharhil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static size_t	print_hex(unsigned int n)
 {
@@ -25,6 +25,8 @@ static size_t	print_hex(unsigned int n)
 	else
 		hex_digit = (n % 16) - 10 + 'A';
 	count += ft_putchar(hex_digit);
+	if (hex_digit < 0)
+		return (-1);
 	return (count);
 }
 

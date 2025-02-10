@@ -6,11 +6,11 @@
 /*   By: ycharhil <ycharhil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 16:59:06 by ycharhil          #+#    #+#             */
-/*   Updated: 2024/12/16 21:52:58 by ycharhil         ###   ########.fr       */
+/*   Updated: 2025/02/05 16:08:36 by ycharhil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 size_t	ft_strlen(const char *c)
 {

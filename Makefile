@@ -6,11 +6,11 @@
 #    By: ycharhil <ycharhil@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 17:32:13 by ycharhil          #+#    #+#              #
-#    Updated: 2024/12/18 17:47:45 by ycharhil         ###   ########.fr        #
+#    Updated: 2025/02/05 16:07:19 by ycharhil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-LIBRARY = libftprintf.h
+LIBRARY = ft_printf.h
 NAME = libftprintf.a
 CC = cc
 INCLUDES = -I.
